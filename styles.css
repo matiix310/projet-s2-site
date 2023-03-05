@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    cursor: none;
+}
+
+body {
+    background: rgb(17, 17, 17);
+    cursor: none;
+}
+
+
+#button {
+    font-size: 50px;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+/* mouse effect */
+
+#mouseHexa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70px; 
+    height: 41px;
+    border: solid #fff;
+    border-width: 0 1px 0 1px;
+
+    transform-origin: center;
+    transition: ease .3s width, ease .3s height;
+}
+
+#mouseHexa:before, #mouseHexa:after {
+    content: "";
+    border: inherit;
+    position: absolute;
+    border-radius: inherit;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: ease .3s width, ease .3s height;
+}
+
+#mouseHexa:before {
+    transform: rotate(60deg);
+}
+#mouseHexa:after {
+    transform: rotate(-60deg);
+}
+
+#mouseHexa.focus {
+    width: 50px;
+    height: 30px;
+}
+
+#mouseHexa.clicked {
+    width: 100px;
+}
+
+#mouse {
+    position: absolute;
+    user-select: none;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    border: solid #fff;
+    border-width: 5px 5px 0 0;
+    border-start-end-radius: 5px;
+
+    transition: ease .3s opacity;
+}
