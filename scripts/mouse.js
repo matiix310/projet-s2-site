@@ -41,8 +41,8 @@ hoverElements.forEach((el) => {
 
 const setMouseEffect = () => {
 
-    mouseHexa.style.left = lerp(mouseHexa.offsetLeft, mouse.x - mouseHexa.clientWidth / 2, 0.2) + "px";
-    mouseHexa.style.top = lerp(mouseHexa.offsetTop, mouse.y - mouseHexa.clientHeight / 2, 0.2) + "px";
+    mouseHexa.style.left = lerp(mouseHexa.offsetLeft, mouse.x - mouseHexa.clientWidth / 2, 0.15) + "px";
+    mouseHexa.style.top = lerp(mouseHexa.offsetTop, mouse.y - mouseHexa.clientHeight / 2, 0.15) + "px";
     mouseDom.style.left = (mouse.x - mouseDom.clientWidth) + "px";
     mouseDom.style.top = (mouse.y - mouseDom.clientHeight/2) + "px";
 
@@ -50,10 +50,6 @@ const setMouseEffect = () => {
 };
 
 setMouseEffect();
-
-
-
-
 
 
 // utils

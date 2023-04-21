@@ -1,0 +1,14 @@
+:root {
+    --yellow: #fdc500;
+    --black: #1e1e1e;
+    --white: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(17, 17, 17);
+}
