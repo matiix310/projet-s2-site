@@ -12,10 +12,11 @@
     background: none;
     top: 0;
     left: 0;
-    width: 70px; 
-    height: 41px;
-    border: solid #fff;
-    border-width: 0 1px 0 1px;
+    /* width: 70px;  */
+    width: 3.7vw;
+    height: 2.1vw;
+    border: solid var(--white);
+    border-width: 0 .1vw 0 .1vw;
 
     transform-origin: center;
     transition: ease .3s width, ease .3s height;
@@ -41,8 +42,8 @@
 }
 
 #mouseHexa.focus {
-    width: 50px;
-    height: 30px;
+    width: 1vw;
+    height: .6vw;
 }
 
 #mouseHexa.clicked {
@@ -54,12 +55,12 @@
     z-index: 100;
     pointer-events: none;
     background: none;
-    width: 20px;
-    height: 20px;
+    width: 1vw;
+    height: 1vw;
     transform: rotate(45deg);
     border: solid #fff;
-    border-width: 5px 5px 0 0;
-    border-start-end-radius: 5px;
+    border-width: .3vw .3vw 0 0;
+    border-start-end-radius: .3vw;
 
     transition: ease .3s opacity;
 }

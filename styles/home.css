@@ -1,7 +1,94 @@
-#button {
+body {
+    background: var(--yellow);
+}
+
+
+/* TITLE */
+
+#title {
+    /* position */
     position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
+    transform: translateX(-50%);
+    top: 5%;
+
+    /* font */
+    font-weight: 700;
+    font-size: 3.3vw;
+
+    /* color */
+    color: var(--black);
+
+    /* cursor interaction */
+    user-select: none;
+}
+
+#title :nth-child(2) {
+    font-family: 'Roboto Mono', sans-serif;
+}
+
+#title :nth-child(3) {
+    transition: .1s ease-in-out;
+}
+
+
+/* DOWNLOAD BUTTON */
+
+#downloadButton {
+    /* position */
+    position: absolute;
+    top: 5%;
+    right: 5%;
+
+    /* size */
+    width: 15%;
+    height: 8%;
+
+    /* borders */
+    border-radius: 1vw;
+
+    /* colors */
+    background: var(--white);
+    color: var(--black);
+
+    /* align the text in the center */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* font */
+    font-size: .7vw;
+
+    /* transition on hover */
+    transition: .3s ease-in-out;
+}
+
+#downloadButton:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+
+/* TERMINAL */
+
+#terminalBackground {
+    /* position */
+    position: absolute;
+    width: 65vw;
+    top: 20%;
+    right: 10vw;
+
+    /* cursor interaction */
+    -webkit-user-drag: none;
+}
+
+#terminalMenu {
+    /* position */
+    position: absolute;
+    top: 25%;
+    right: 38vw;
+    height: 64vh;
+
+    /* cursor interaction */
+    -webkit-user-drag: none;
 }
