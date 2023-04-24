@@ -70,8 +70,8 @@ const sideMenu = document.getElementsByClassName('sideMenu')[0];
 for (let i = 1; i < sideMenu.children.length; i++) {
     const menuButton = sideMenu.children.item(i);
     const target = menuButton.getAttribute('target');
-    const yCoord = document.getElementById(target).offsetTop;
     menuButton.addEventListener('click', (_) => {
+        const yCoord = document.getElementById(target).offsetTop;
         // update the menu progress
         setMenuProgress(i);
         // scroll to the selected wrapper
