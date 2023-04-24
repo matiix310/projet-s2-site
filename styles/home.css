@@ -71,12 +71,17 @@ body {
 
 /* TERMINAL */
 
-#terminalBackground {
+.terminalContainer {
     /* position */
     position: absolute;
     width: 65vw;
     top: 20%;
     right: 10vw;
+}
+
+#terminalBackground {
+    /* size */
+    width: 100%;
 
     /* cursor interaction */
     -webkit-user-drag: none;
@@ -85,10 +90,107 @@ body {
 #terminalMenu {
     /* position */
     position: absolute;
-    top: 25%;
-    right: 38vw;
-    height: 64vh;
+    top: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* size */
+    height: 90%;
 
     /* cursor interaction */
     -webkit-user-drag: none;
+}
+
+
+/* SIDE MENU */
+
+.sideMenu {
+    /* position */
+    position: fixed;
+    z-index: 10;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+
+    /* size */
+    height: 70%;
+    width: 20%;
+
+    /* container properties */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.sideMenu h1 {
+    position: relative;
+    color: var(--black);
+    padding: 2vh 0;
+    transition: .3s ease-in-out;
+    font-size: 1.5vw;
+}
+
+.sideMenu h1:hover {
+    padding-left: 1vw;
+}
+
+.sideMenu h1::after {
+    content: '';
+
+    /* position */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(-3vw, -50%);
+
+    /* size */
+    width: 1.5vw;
+    height: 1.5vw;
+
+    /* misc */
+    border-radius: 100%;
+    border: 1px solid var(--black);
+    transition: .3s ease-in-out;
+}
+
+.sideMenu h1.selected::after {
+    border: 1px solid transparent;
+    background: var(--black);
+}
+
+#menuProgressBar {
+    content: '';
+
+    /* position */
+    position: absolute;
+    left: -2.45vw;
+    top: 3.3vh;
+
+    /* size */
+    height: 0;
+    width: .5vw;
+
+    /* misc */
+    background: var(--black);
+    transition: .3s ease-in-out;
+}
+
+
+/* WRAPPER */
+
+.wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.side-container {
+    /* position */
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    /* size */
+    width: 75%;
+    height: 100%;
 }

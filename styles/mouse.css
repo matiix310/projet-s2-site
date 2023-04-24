@@ -6,7 +6,7 @@
 /* mouse effect */
 
 #mouseHexa {
-    position: absolute;
+    position: fixed;
     z-index: 100;
     pointer-events: none;
     background: none;
@@ -51,7 +51,7 @@
 }
 
 #mouse {
-    position: absolute;
+    position: fixed;
     z-index: 100;
     pointer-events: none;
     background: none;

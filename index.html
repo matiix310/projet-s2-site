@@ -13,24 +13,53 @@
     <span id="mouse"></span>
     <span id="mouseHexa"></span>
 
-    <h1 id="title">
-        <span>#></span>
-        <span></span>
-        <span>▊</span>
-    </h1>
-    
-    <img src="assets/terminal.png" alt="terminal" id="terminalBackground">
-    <img src="assets/mainMenu.png" alt="terminal menu" id="terminalMenu">
-
-    <div id="downloadButton" class="hoverElement">
-        <h1>Télécharger</h1>
+    <div index="0" id="header" class="wrapper">
+            <h1 id="title">
+                <span>#></span>
+                <span></span>
+                <span>▊</span>
+            </h1>
+            
+            <div class="terminalContainer">
+                <img src="assets/terminal.png" alt="terminal" id="terminalBackground">
+                <img src="assets/mainMenu.png" alt="terminal menu" id="terminalMenu">
+            </div>
+        
+        <div id="downloadButton" class="hoverElement">
+            <h1>Télécharger</h1>
+        </div>
+        
+        <div class="sideMenu">
+            <span id="menuProgressBar"></span>
+            <h1 target="presentation" class="hoverElement">Présentation</h1>
+            <h1 target="members" class="hoverElement">Membres</h1>
+            <h1 target="informations" class="hoverElement">Autres informations</h1>
+            <h1 target="contacts" class="hoverElement">Contacts</h1>
+        </div>
     </div>
 
-    <div class="sideMenu">
-        <h1>Présentation</h1>
-        <h1>Membres</h1>
-        <h1>Autres informations</h1>
-        <h1>Contacts</h1>
+    <div index="1" id="presentation" class="wrapper">
+        <div class="side-container">
+            <h1>presentation</h1>
+        </div>
+    </div>
+
+    <div index="2" id="members" class="wrapper">
+        <div class="side-container">
+            <h1>members</h1>
+        </div>
+    </div>
+
+    <div index="3" id="informations" class="wrapper">
+        <div class="side-container">
+            <h1>informations</h1>
+        </div>
+    </div>
+
+    <div index="4" id="contacts" class="wrapper">
+        <div class="side-container">
+            <h1>contacts</h1>
+        </div>
     </div>
 
 </body>

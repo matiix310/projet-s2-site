@@ -1,4 +1,6 @@
 
+// TITLE ANIMATION
+
 const title = document.getElementById('title');
 
 const cursorAnim = () => {
@@ -59,6 +61,61 @@ const titleAnim = async (currentIndex) => {
 cursorAnim();
 titleAnim(0);
 
+
+
+// SIDE MENU BEHAVIOUR
+
+const sideMenu = document.getElementsByClassName('sideMenu')[0];
+
+for (let i = 1; i < sideMenu.children.length; i++) {
+    const menuButton = sideMenu.children.item(i);
+    const target = menuButton.getAttribute('target');
+    const yCoord = document.getElementById(target).offsetTop;
+    menuButton.addEventListener('click', (_) => {
+        // update the menu progress
+        setMenuProgress(i);
+        // scroll to the selected wrapper
+        window.scrollTo(0, yCoord)
+    })
+}
+
+
+const setMenuProgress = (progress) => {
+    const menuButtons = document.getElementsByClassName('sideMenu')[0].children;
+
+    if (progress >= menuButtons.length) return;
+
+    // update the bar size
+    document.getElementById('menuProgressBar').style.height = (progress-1)*21 + 'vh'
+
+    // remove selected to the next buttons
+    for (let j = progress+1; j < menuButtons.length; j++) {
+        menuButtons.item(j).classList.remove('selected');
+    }
+
+    // add selected to the current and previous buttons
+    for (let j = 1; j <= progress; j++) {
+        menuButtons.item(j).classList.add('selected')
+    }
+}
+
+
+// OBSERVER
+
+const wrappers = document.getElementsByClassName('wrapper');
+const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+        if (entry.isIntersecting) {
+            setMenuProgress(parseInt(entry.target.getAttribute('index')))
+        }
+    }
+}, {
+    threshold: .7
+});
+
+for (let i = 0; i < wrappers.length; i++) {
+    observer.observe(wrappers.item(i));
+}
 
 
 // UTILS
