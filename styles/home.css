@@ -71,36 +71,48 @@ body {
 
 /* TERMINAL */
 
-.terminalContainer {
+#terminalBackground {
     /* position */
     position: absolute;
     width: 65vw;
     top: 20%;
     right: 10vw;
-}
-
-#terminalBackground {
-    /* size */
-    width: 100%;
 
     /* cursor interaction */
     -webkit-user-drag: none;
+}
+
+#terminalMenuContainer {
+    /* position */
+    position: absolute;
+
+    /* size */
+    width: 9vw;
+    height: 32vw;
+
+    /* cursor interaction */
+    -webkit-user-drag: none;
+
+    /* container properties */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* misc */
+    transition: .3s ease-in-out;
+    margin-top: -10px;
+    margin-left: -20px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    overflow: hidden;
 }
 
 #terminalMenu {
-    /* position */
-    position: absolute;
-    top: 7%;
-    left: 50%;
-    transform: translateX(-50%);
-
-    /* size */
-    height: 90%;
-
-    /* cursor interaction */
-    -webkit-user-drag: none;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 0 0;
 }
-
 
 /* SIDE MENU */
 

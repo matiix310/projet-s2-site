@@ -118,6 +118,56 @@ for (let i = 0; i < wrappers.length; i++) {
 }
 
 
+// SCROLL ANIMATIONS
+
+const setTerminalMenuStyle = () => {
+    const top = window.pageYOffset;
+
+    // translation
+    if (top >= 0 && top <= window.innerHeight) {
+
+        const startingSize = {
+            width: window.innerWidth * .09,
+            height: window.innerWidth * .32,
+        }
+
+        const endingSize = {
+            width: window.innerWidth * .15,
+            height: window.innerWidth * .24,
+        }
+
+        const startingPosition = {
+            x: window.innerWidth * .530,  // 57.5% of the screen width
+            y: window.innerHeight * .20 + window.innerWidth * .03,  // 21.0% of the screen height
+        };
+
+        const endingPosition = {
+            x: window.innerWidth - endingSize.width - window.innerWidth * .10,
+            y: window.innerHeight + (window.innerHeight / 2) - (endingSize.height / 2),
+        }
+
+        // get the scroll percentage (between 0 and 1)
+        let scrollPercentage = (top / window.innerHeight)*1.1;
+        if (scrollPercentage > 1) scrollPercentage = 1;
+        // compute the current position
+        const topOffset = ((endingPosition.y - startingPosition.y) * scrollPercentage) + startingPosition.y;
+        const leftOffset = ((endingPosition.x - startingPosition.x) * scrollPercentage) + startingPosition.x;
+        // compute the height
+        const height = ((endingSize.height - startingSize.height) * scrollPercentage) + startingSize.height;
+        const width = ((endingSize.width - startingSize.width) * scrollPercentage) + startingSize.width;
+
+        document.getElementById('terminalMenuContainer').style.top = topOffset + 'px';
+        document.getElementById('terminalMenuContainer').style.left = leftOffset + 'px';
+        document.getElementById('terminalMenuContainer').style.background = `rgba(0, 0, 0, ${scrollPercentage*0.95})`;
+        document.getElementById('terminalMenuContainer').style.height = height + 'px';
+        document.getElementById('terminalMenuContainer').style.width = width + 'px';
+    }
+
+    // reload the animation
+    window.requestAnimationFrame(setTerminalMenuStyle);
+}
+
+
 // UTILS
 
 const sleep = async (time) => {
@@ -127,3 +177,13 @@ const sleep = async (time) => {
         }, time);
     })
 }
+
+
+// GLOBAL INIT
+
+const init = () => {
+    setMenuProgress(0);
+    window.requestAnimationFrame(setTerminalMenuStyle);
+}
+
+init();

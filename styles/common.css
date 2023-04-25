@@ -21,3 +21,13 @@ body {
     background: rgb(17, 17, 17);
     overflow-x: hidden;
 }
+
+::-moz-selection { /* Code for Firefox */
+    color: var(--white);
+    background: var(--yellow);
+}
+  
+::selection {
+    color: var(--white);
+    background: var(--yellow);
+}
