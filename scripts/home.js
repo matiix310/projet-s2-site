@@ -170,6 +170,11 @@ const setTerminalMenuStyle = () => {
 
 // UTILS
 
+/**
+ * Sleep the current thread for `time`ms
+ * @param {number} time in ms 
+ * @returns {Promise<void>}
+ */
 const sleep = async (time) => {
     return new Promise((resolve, _) => {
         setTimeout(() => {
@@ -179,10 +184,62 @@ const sleep = async (time) => {
 }
 
 
+// PRESENTATION SLIDER
+
+/**
+ * Set the presentation slider bottom button state
+ * @param {number} index the index of the slider to activate
+ */
+const setSliderButtonState = (index) => {
+    const buttonContainer = document.getElementById('sliderButtonContainer');
+
+    // fill with the missing button
+    if (buttonContainer.childElementCount != presentations.length) {
+        buttonContainer.innerHTML = '';
+        for (let i = 0; i < presentations.length; i++) {
+            spanElement = document.createElement('span');
+            addMouseEffectToElement(spanElement);
+            spanElement.addEventListener('click', (e) => setSliderState(i))
+            buttonContainer.appendChild(spanElement);
+        }
+    }
+
+    // set the active button
+    for (let i = 0; i < buttonContainer.childElementCount; i++)
+        if (i == index)
+            buttonContainer.children.item(i).classList.add('selected');
+        else
+            buttonContainer.children.item(i).classList.remove('selected');
+}
+
+/**
+ * Set the presentation slider text by its index
+ * @param {number} index the index of the text to display
+ */
+const setSliderState = (index) => {
+    if (index >= presentations.length || index < 0)
+        index = 0;
+
+    // remove the mouse hover effect to the links
+    removeMouseEffectToElements(document.getElementById('sliderPresentation').getElementsByTagName('a'));
+
+    document.getElementById('sliderPresentation').innerHTML = presentations[index];
+
+    // add the mouse hover effect to the links
+    addMouseEffectToElements(document.getElementById('sliderPresentation').getElementsByTagName('a'));
+
+    setSliderButtonState(index);
+}
+
+
 // GLOBAL INIT
 
+/**
+ * Launch the mandatory functions of the home page
+ */
 const init = () => {
     setMenuProgress(0);
+    setSliderState(0);
     window.requestAnimationFrame(setTerminalMenuStyle);
 }
 
