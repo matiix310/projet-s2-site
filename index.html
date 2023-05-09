@@ -4,17 +4,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/mouse.css">
+    <link rel="stylesheet" href="styles/home.css">
     <title>Proj S2</title>
 </head>
 <body>
-    
-    <span id="mouseHexa"></span>
     <span id="mouse"></span>
+    <span id="mouseHexa"></span>
 
+    <div index="0" id="header" class="wrapper">
+            <h1 id="title">
+                <span>#></span>
+                <span></span>
+                <span>▊</span>
+            </h1>
+            
+            <img src="assets/terminal.png" alt="terminal" id="terminalBackground">
+            <div id="terminalMenuContainer">
+                <img src="assets/mainMenu.png" alt="terminal menu" id="terminalMenu">
+            </div>
+        
+        <div id="downloadButton" class="hoverElement">
+            <h1>Download</h1>
+        </div>
+        
+        <div class="sideMenu">
+            <span id="menuProgressBar"></span>
+            <h1 target="presentation" class="hoverElement">Presentation</h1>
+            <h1 target="members" class="hoverElement">Membres</h1>
+            <h1 target="informations" class="hoverElement">Other informations</h1>
+            <h1 target="contacts" class="hoverElement">Contacts</h1>
+        </div>
+    </div>
 
-    <h1 id="button" class="hoverElement">click me !</h1>
+    <div index="1" id="presentation" class="wrapper">
+        <div class="side-container">
+
+            <!-- slider -->
+            <div class="slider">
+                <h1 id="sliderPresentation"></h1>
+                <div id="sliderButtonContainer">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div index="2" id="members" class="wrapper">
+        <div class="side-container">
+            
+        </div>
+    </div>
+
+    <div index="3" id="informations" class="wrapper">
+        <div class="side-container">
+            <h1>informations</h1>
+        </div>
+    </div>
+
+    <div index="4" id="contacts" class="wrapper">
+        <div class="side-container">
+            <h1>contacts</h1>
+        </div>
+    </div>
 
 </body>
-<script src="index.js"></script>
+<script src="scripts/mouse.js"></script>
+<script src="assets/presentations.js"></script>
+<script src="scripts/home.js"></script>
 </html>
