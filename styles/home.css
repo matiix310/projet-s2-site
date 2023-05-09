@@ -1,3 +1,6 @@
+/* import JetBrains Mono */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
 body {
     background: var(--yellow);
 }
@@ -270,4 +273,181 @@ body {
 
 #sliderButtonContainer span.selected {
     flex: 2;
+}
+
+
+/* MEMBERS */
+
+.selector-mask {
+    /* position */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    /* size */
+    width: 100%;
+    height: 80%;
+
+    /* display */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+
+    /* misc */
+    overflow: hidden;
+}
+
+.selector-mask .image {
+    height: 50%;
+    margin: 0 2vw;
+    overflow: hidden;
+
+    /* transition */
+    transition: ease-in-out .3s;
+}
+
+.selector-mask .image.selected {
+    height: 80%;
+}
+
+.selector-mask .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 28px;
+}
+
+#imageBorder {
+    /* position */
+    position: absolute;
+
+    /* size */
+    height: 80%;
+    margin-left: -25vw; /* to counter the left spacing of the side-container*/
+
+    /* transition */
+    transition: left ease-in-out .3s;
+}
+
+#imageBorder img {
+    pointer-events: none;
+}
+
+/* border */
+#imageBorder img:nth-child(2) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+}
+
+/* state button */
+#imageBorder img:nth-child(3) {
+    position: absolute;
+    margin-left: 25px;
+    top: 3.5%;
+    height: 3%;
+}
+
+#imageBorderTitle {
+    /* position */
+    position: absolute;
+    top: 3%;
+    margin-left: 25px;
+
+    /* font */
+    color: var(--white);
+    text-align: center;
+    font-size: 1.2vw;
+}
+
+/* member show more */
+
+#jsContainer {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 28px;
+}
+
+.member-show-more {
+    /* position */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    /* size */
+    width: 100%;
+    height: 15%;
+
+    /* colors */
+    background-color: rgba(0, 0, 0, .95);
+
+    /* transition */
+    transition: .3s ease-in-out;
+}
+
+#showMoreTitle {
+    /* position */
+    position: absolute;
+    top: 25px;
+    left: 15%;
+
+    /* color */
+    color: var(--yellow);
+
+    /* font */
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1vw;
+
+    /* transition */
+    transition: .3s ease-in-out;
+}
+
+#showMoreContent {
+    /* position */
+    margin-left: 10%;
+    margin-top: 9.6vh;
+
+    /* size */
+    width: 80%;
+
+    /* font */
+    text-align: center;
+    font-size: 1.2vw;
+
+    /* color */
+    color: var(--white);
+}
+
+#showMoreContent a {
+    color: var(--yellow);
+    text-decoration: none;
+}
+
+.member-show-more img {
+    /* position */
+    position: absolute;
+    left: 5%;
+    top: 20px;
+
+    /* size */
+    width: 7%;
+
+    /* transition */
+    transition: .3s ease-in-out;
+}
+
+.member-show-more:hover {
+    height: 50%;
+}
+
+.member-show-more:hover h1:nth-child(2) {
+    opacity: 0;
+}
+
+.member-show-more:hover img {
+    transform: rotateZ(-90deg);
 }

@@ -79,7 +79,10 @@ for (let i = 1; i < sideMenu.children.length; i++) {
     })
 }
 
-
+/**
+ * Set the menu progress to the provided `progess` index
+ * @param {number} progress the progress index of the menu
+ */
 const setMenuProgress = (progress) => {
     const menuButtons = document.getElementsByClassName('sideMenu')[0].children;
 
@@ -213,7 +216,7 @@ const setSliderButtonState = (index) => {
 }
 
 /**
- * Set the presentation slider text by its index
+ * Set the presentation slider text by its `index`
  * @param {number} index the index of the text to display
  */
 const setSliderState = (index) => {
@@ -232,6 +235,75 @@ const setSliderState = (index) => {
 }
 
 
+// MEMBERS
+
+/**
+ * Get the maximum width of the images
+ * @returns {number} the maximum width of the images
+ */
+const getMaxWidth = () => {
+    let max = 0;
+    const images = document.getElementById('members').getElementsByClassName('image');
+
+    for (let i = 0; i < images.length; i++)
+        if (max < images.item(i).getClientRects().item(0).width)
+            max = images.item(i).getClientRects().item(0).width;
+
+    return max;
+}
+
+/**
+ * Set the members slider state by its `index`
+ * @param {number} index 
+ */
+const setMemberState = () => {
+    const selectedImage = document.getElementById('members').getElementsByClassName('selected').item(0);
+    const leftOffset = selectedImage.getClientRects().item(0).left;
+    // get the maximim width
+    const maxWidth = getMaxWidth();
+
+    // set the border proprties
+    const borderElement = document.getElementById('imageBorder');
+    borderElement.style.left = leftOffset + 'px';
+    borderElement.children.item(1).style.width = maxWidth + 'px';
+
+    // set the title properties
+    const imageBorderTitle = document.getElementById('imageBorderTitle');
+    imageBorderTitle.style.width = maxWidth + 'px';
+    imageBorderTitle.textContent = selectedImage.getAttribute('name');
+
+    // set the jsContainer properties
+    const jsContainer = document.getElementById('jsContainer');
+    jsContainer.style.width = maxWidth + 'px';
+
+    // set the show more title properties
+    const showMoreTitle = document.getElementById('showMoreTitle');
+    showMoreTitle.textContent = `./show_more.sh "${selectedImage.getAttribute('name')}"`;
+
+    // set the show more content properties
+    const showMoreContent = document.getElementById('showMoreContent');
+    showMoreContent.innerHTML = descriptions[selectedImage.getAttribute('name')];
+};
+
+const initMembersListener = () => {
+    const members = document.getElementById('members').getElementsByClassName('image');
+    
+    for (let i = 0; i < members.length; i++)
+        members.item(i).addEventListener('click', () => {
+            // remove the selected class for every image element
+            for (let j = 0; j < members.length; j++)
+                members.item(j).classList.remove('selected');
+
+            // add the selected class to the selected image element
+            members.item(i).classList.add('selected');
+
+            setTimeout(() => {
+                setMemberState();
+            }, 300);
+        })
+};
+
+
 // GLOBAL INIT
 
 /**
@@ -240,7 +312,23 @@ const setSliderState = (index) => {
 const init = () => {
     setMenuProgress(0);
     setSliderState(0);
+    setTimeout(() => {
+        setMemberState();
+    }, 400);
+    initMembersListener();
     window.requestAnimationFrame(setTerminalMenuStyle);
 }
 
 init();
+
+
+// MAIN LOOP TO RERENDER THE ANIMATIONS
+
+const renderAnimation = () => {
+    setTimeout(() => {
+        setMemberState();
+    }, 300);
+    // window.requestAnimationFrame(renderAnimation);
+};
+
+window.onresize = renderAnimation;
