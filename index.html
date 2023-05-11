@@ -35,7 +35,7 @@
             <h1 target="presentation" class="hoverElement">Presentation</h1>
             <h1 target="members" class="hoverElement">Membres</h1>
             <h1 target="timeline" class="hoverElement">Project timeline</h1>
-            <h1 target="contacts" class="hoverElement">Contacts</h1>
+            <h1 target="contact" class="hoverElement">Contact</h1>
         </div>
     </div>
 
@@ -107,10 +107,32 @@
         </div>
     </div>
 
-    <!-- CONTACTS -->
-    <div index="4" id="contacts" class="wrapper">
+    <!-- CONTACT -->
+    <div index="4" id="contact" class="wrapper">
         <div class="side-container">
-            <h1>contacts</h1>
+            <div class="contact-container">
+                <div class="contact-top-bar">
+                    <img src="assets/stateButtons.png">
+                    <h1>Contact us</h1>
+                </div>
+                <div class="contact-questions-container">
+                    <div class="contact-question-container hoverElement">
+                        <h1>> Your name :</h1>
+                        <input type="text" id="contactName" class="input">
+                    </div>
+                    <div class="contact-question-container hoverElement">
+                        <h1>> Your email (can be blank) :</h1>
+                        <input type="text" id="contactMail" class="input">
+                    </div>
+                    <div class="contact-question-container contact-message-container hoverElement">
+                        <h1>> Your message :</h1>
+                        <textarea id="contactMessage" class="input" rows="8"></textarea>
+                    </div>
+                    <div class="contact-question-container">
+                        <h1 id="contactButton" class="hoverElement"><span></span>> Send</h1>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

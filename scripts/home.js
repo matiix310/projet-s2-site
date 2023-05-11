@@ -352,6 +352,25 @@ const adjustTimelineSize = () => {
 }
 
 
+// CONTACT
+
+const addContactFormListener = () => {
+    const questionElements = document.getElementsByClassName('contact-question-container');
+
+    for (let i = 0; i < questionElements.length; i++) {
+        questionElements.item(i).addEventListener('click', () => {
+            questionElements.item(i).getElementsByClassName('input').item(0).focus();
+        })
+    }
+
+    document.getElementById('contactButton').addEventListener('click', () => {
+        alert('Contact form successfully sent!')
+        location.reload();
+    })
+}
+
+
+
 // MAIN LOOP TO RENDER THE ANIMATIONS
 
 const renderAnimation = () => {
@@ -372,9 +391,10 @@ const init = () => {
     setMenuProgress(0);
     setSliderState(0);
     initMembersListener();
-    setTimelineState(2);
+    setTimelineState(0);
     addTimelineButtonListener();
     renderAnimation();
+    addContactFormListener();
     window.requestAnimationFrame(setTerminalMenuStyle);
 }
 
