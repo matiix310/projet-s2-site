@@ -451,3 +451,171 @@ body {
 .member-show-more:hover img {
     transform: rotateZ(-90deg);
 }
+
+
+/* TIMELINE */
+
+.timelineContainer {
+    /* position */
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    /* size */
+    width: 90%;
+    height: 70%;
+    
+    /* color */
+    background-color: rgba(0, 0, 0, .95);
+
+    /* rounded corner */
+    border-radius: 20px;
+
+    /* misc */
+    overflow: hidden;
+}
+
+.graph.hidden {
+    /* animation */
+    opacity: 0;
+    left: 100% !important;
+}
+
+.graph {
+    /* position */
+    position: absolute;
+    top: 20%;
+    left: 0%;
+
+    /* size */
+    /* TODO */
+    /* librairie mal fouttue, on peut pas changer la size */
+    width: 100%;
+
+    /* animation */
+    opacity: 1;
+
+    transform-origin: 0 0;
+
+    /* transiton */
+    transition: .5s ease-in-out;
+}
+
+/* top bar */
+
+.timeline-top-bar {
+    /* position */
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /* size */
+    width: 100%;
+    height: 8%;
+
+    /* color */
+    background: #1a1a1a;
+}
+
+.timeline-top-bar img {
+    /* position */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 2%;
+
+    /* size */
+    height: 45%;
+}
+
+.timeline-top-bar h1 {
+    /* position */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    /* size */
+    width: 100%;
+
+    /* font */
+    font-size: 1.3vw;
+
+    /* color */
+    color: var(--white);
+}
+
+/* presentation-indicator */
+
+.presentation-indicator {
+    /* position */
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+
+    /* size */
+    width: 100%;
+    height: 30%;
+
+    /* display */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.presentation-indicator span {
+    /* position */
+    position: relative;
+    
+    /* size */
+    width: 20%;
+    margin: 0 3%;
+}
+
+.presentation-indicator span::before {
+    content: '';
+    /* position */
+    position: absolute;
+    left: 50%;
+    top: 0px;
+    transform: translateX(-50%);
+
+    /* size */
+    width: 70%;
+    height: 8%;
+
+    /* color */
+    background: var(--white);
+
+    /* rounded border */
+    border-radius: 999px;
+
+    /* transition */
+    transition: .3s ease-in-out;
+}
+
+.presentation-indicator span {
+
+    /* size */
+    padding-top: 30px;
+
+    /* font */
+    text-align: center;
+    font-size: 1.4vw;
+
+    /* color */
+    color: white;
+
+    /* transition */
+    transition: .3s ease-in-out;
+}
+
+.presentation-indicator .selected {
+    color: var(--yellow);
+}
+
+.presentation-indicator .selected::before {
+    background: var(--yellow);
+}

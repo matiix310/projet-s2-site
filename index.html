@@ -13,6 +13,7 @@
     <span id="mouse"></span>
     <span id="mouseHexa"></span>
 
+    <!-- HEADER -->
     <div index="0" id="header" class="wrapper">
             <h1 id="title">
                 <span>#></span>
@@ -33,11 +34,12 @@
             <span id="menuProgressBar"></span>
             <h1 target="presentation" class="hoverElement">Presentation</h1>
             <h1 target="members" class="hoverElement">Membres</h1>
-            <h1 target="informations" class="hoverElement">Other informations</h1>
+            <h1 target="timeline" class="hoverElement">Project timeline</h1>
             <h1 target="contacts" class="hoverElement">Contacts</h1>
         </div>
     </div>
 
+    <!-- PRESENTATION -->
     <div index="1" id="presentation" class="wrapper">
         <div class="side-container">
 
@@ -51,6 +53,7 @@
         </div>
     </div>
 
+    <!-- MEMBERS -->
     <div index="2" id="members" class="wrapper">
         <div class="side-container">
             <div class="selector-mask">
@@ -82,12 +85,29 @@
         </div>
     </div>
 
-    <div index="3" id="informations" class="wrapper">
+    <!-- TIMELINE -->
+    <div index="3" id="timeline" class="wrapper">
         <div class="side-container">
-            <h1>informations</h1>
+            <div class="timelineContainer">
+                <div class="timeline-top-bar">
+                    <img src="assets/stateButtons.png">
+                    <h1>Project timeline</h1>
+                </div>
+
+                <div id="graph-container1" class="graph hoverElement" style="left: 50px"></div>
+                <div id="graph-container2" class="graph hoverElement" style="left: 120px"></div>
+                <div id="graph-container3" class="graph hoverElement" style="left: 120px"></div>
+
+                <div class="presentation-indicator">
+                    <span class="hoverElement selected">09/03<br>First presentation</span>
+                    <span class="hoverElement">21/04<br>Second presentation</span>
+                    <span class="hoverElement">02/06<br>Final presentation</span>
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- CONTACTS -->
     <div index="4" id="contacts" class="wrapper">
         <div class="side-container">
             <h1>contacts</h1>
@@ -98,4 +118,7 @@
 <script src="scripts/mouse.js"></script>
 <script src="assets/data.js"></script>
 <script src="scripts/home.js"></script>
+<!-- gitgraph library -->
+<script src="scripts/gitgraph.js"></script>
+<script src="scripts/gitgraphManager.js"></script>
 </html>

@@ -304,6 +304,65 @@ const initMembersListener = () => {
 };
 
 
+// PROJECT TIMELINE
+
+/**
+ * Set the new index of the timeline
+ * @param {number} index the new index of the timeline
+ */
+const setTimelineState = (index) => {
+    
+    // set the button style
+    const buttons = document.getElementsByClassName('presentation-indicator').item(0).children;
+    for(let i = 0; i < buttons.length; i++)
+        if (i == index)
+            buttons.item(i).classList.add('selected');
+        else
+            buttons.item(i).classList.remove('selected');
+
+    // set the graph style
+    for (let i = 0; i < buttons.length; i++)
+        if (i == index)
+            document.getElementById('graph-container' + (i+1)).classList.remove('hidden');
+        else
+            document.getElementById('graph-container' + (i+1)).classList.add('hidden');
+    
+}
+
+/**
+ * Add the onclick event listener to each button of the timeline
+ */
+const addTimelineButtonListener = () => {
+    const buttons = document.getElementsByClassName('presentation-indicator').item(0).children;
+
+    for (let i = 0; i < buttons.length; i++) {
+        buttons.item(i).addEventListener('click', () => {
+            setTimelineState(i);
+        })
+    }
+}
+
+/**
+ * compute the exact scale factor to display correctly the graph in the timeline
+ */
+const adjustTimelineSize = () => {
+    document.getElementsByClassName('graph').item(0).style.scale = (0.0571*window.innerWidth - 10.0658) + '%'
+    document.getElementsByClassName('graph').item(1).style.scale = (0.0571*window.innerWidth - 10.0658) + '%'
+    document.getElementsByClassName('graph').item(2).style.scale = (0.0571*window.innerWidth - 10.0658) + '%'
+}
+
+
+// MAIN LOOP TO RENDER THE ANIMATIONS
+
+const renderAnimation = () => {
+    setTimeout(() => {
+        setMemberState();
+    }, 300);
+
+    adjustTimelineSize();
+};
+
+
 // GLOBAL INIT
 
 /**
@@ -312,23 +371,12 @@ const initMembersListener = () => {
 const init = () => {
     setMenuProgress(0);
     setSliderState(0);
-    setTimeout(() => {
-        setMemberState();
-    }, 400);
     initMembersListener();
+    setTimelineState(2);
+    addTimelineButtonListener();
+    renderAnimation();
     window.requestAnimationFrame(setTerminalMenuStyle);
 }
 
 init();
-
-
-// MAIN LOOP TO RERENDER THE ANIMATIONS
-
-const renderAnimation = () => {
-    setTimeout(() => {
-        setMemberState();
-    }, 300);
-    // window.requestAnimationFrame(renderAnimation);
-};
-
 window.onresize = renderAnimation;
