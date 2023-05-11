@@ -9,7 +9,7 @@ const gitgraph1 = GitgraphJS.createGitgraph(graphContainer1, {
 });
 
 const master1 = gitgraph1.branch('master')
-    .commit('First presentation')
+    .commit('Initial commit')
     .commit('feat:create Canvas class');
 
 const Terminal1 = master1.branch('Terminal')
@@ -43,7 +43,7 @@ const gitgraph2 = GitgraphJS.createGitgraph(graphContainer2, {
 });
 
 const master2 = gitgraph2.branch('master')
-    .commit('Second presentation');
+    .commit('First presentation');
 
 const Terminal2 = master2.branch('Terminal')
     .commit('fix:CommandSelector class')
@@ -74,7 +74,7 @@ const gitgraph3 = GitgraphJS.createGitgraph(graphContainer3, {
 });
 
 const master3 = gitgraph3.branch('master')
-    .commit('Final presentation');
+    .commit('Second presentation');
 
 const Terminal3 = master3.branch('Terminal')
     .commit('fix:Tree class')
