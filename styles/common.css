@@ -18,7 +18,7 @@ html {
 }
 
 body {
-    background: rgb(17, 17, 17);
+    background: var(--yellow);
     overflow-x: hidden;
 }
 

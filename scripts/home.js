@@ -1,68 +1,4 @@
 
-// TITLE ANIMATION
-
-const title = document.getElementById('title');
-
-const cursorAnim = () => {
-    const interval = 500;
-    setInterval(() => {
-        title.children[2].style.opacity = "0"
-        setTimeout(() => {
-            title.children[2].style.opacity = "1"
-        }, interval);
-    }, interval*2);
-}
-
-const titleAnim_remove = async (interval, length) => {
-    return new Promise((resolve, reject) => {
-        let counter = 0;
-        var looper = setInterval(() => {
-            title.children[1].textContent = title.children[1].textContent.substring(0, title.children[1].textContent.length-1);
-            counter ++;
-    
-            if (counter == length+1) {
-                clearInterval(looper);
-                resolve();
-            }
-        }, interval);
-    })
-}
-
-const titleAnim_write = async (interval, word) => {
-    return new Promise((resolve, reject) => {
-        let counter = 0;
-        var looper = setInterval(() => {
-            title.children[1].textContent = word.substring(0, counter+1);
-            counter ++;
-    
-            if (counter == word.length+1) {
-                clearInterval(looper);
-                resolve();
-            }
-        }, interval);
-    })
-}
-
-const titleAnim = async (currentIndex) => {
-    const interval = 200;
-    const words = ['Termin@l', 'by !001', 'dotnet run'];
-
-    // write the word
-    await titleAnim_write(interval, words[currentIndex]);
-
-    await sleep(1500)
-
-    // remove word
-    await titleAnim_remove(interval, words[currentIndex].length);
-
-    titleAnim((currentIndex+1)%words.length);
-}
-
-cursorAnim();
-titleAnim(0);
-
-
-
 // SIDE MENU BEHAVIOUR
 
 const sideMenu = document.getElementsByClassName('sideMenu')[0];
@@ -168,70 +104,6 @@ const setTerminalMenuStyle = () => {
 
     // reload the animation
     window.requestAnimationFrame(setTerminalMenuStyle);
-}
-
-
-// UTILS
-
-/**
- * Sleep the current thread for `time`ms
- * @param {number} time in ms 
- * @returns {Promise<void>}
- */
-const sleep = async (time) => {
-    return new Promise((resolve, _) => {
-        setTimeout(() => {
-            resolve();
-        }, time);
-    })
-}
-
-
-// PRESENTATION SLIDER
-
-/**
- * Set the presentation slider bottom button state
- * @param {number} index the index of the slider to activate
- */
-const setSliderButtonState = (index) => {
-    const buttonContainer = document.getElementById('sliderButtonContainer');
-
-    // fill with the missing button
-    if (buttonContainer.childElementCount != presentations.length) {
-        buttonContainer.innerHTML = '';
-        for (let i = 0; i < presentations.length; i++) {
-            spanElement = document.createElement('span');
-            addMouseEffectToElement(spanElement);
-            spanElement.addEventListener('click', (e) => setSliderState(i))
-            buttonContainer.appendChild(spanElement);
-        }
-    }
-
-    // set the active button
-    for (let i = 0; i < buttonContainer.childElementCount; i++)
-        if (i == index)
-            buttonContainer.children.item(i).classList.add('selected');
-        else
-            buttonContainer.children.item(i).classList.remove('selected');
-}
-
-/**
- * Set the presentation slider text by its `index`
- * @param {number} index the index of the text to display
- */
-const setSliderState = (index) => {
-    if (index >= presentations.length || index < 0)
-        index = 0;
-
-    // remove the mouse hover effect to the links
-    removeMouseEffectToElements(document.getElementById('sliderPresentation').getElementsByTagName('a'));
-
-    document.getElementById('sliderPresentation').innerHTML = presentations[index];
-
-    // add the mouse hover effect to the links
-    addMouseEffectToElements(document.getElementById('sliderPresentation').getElementsByTagName('a'));
-
-    setSliderButtonState(index);
 }
 
 
@@ -369,7 +241,14 @@ const addContactFormListener = () => {
     })
 }
 
+// REDIRECT TO THE MOBILE WEBSITE
+// DEPENDING ON THE SCREEN WIDTH AND THE USER AGENT
 
+const redirectMobileWebsite = () => {
+    var is_mobile = !!navigator.userAgent.match(/iphone|android|blackberry/ig) || false;
+    if (is_mobile)
+        document.location.href = "m";
+}
 
 // MAIN LOOP TO RENDER THE ANIMATIONS
 
@@ -379,6 +258,10 @@ const renderAnimation = () => {
     }, 300);
 
     adjustTimelineSize();
+
+    // get the width size
+    const width = window.innerWidth;
+    redirectMobileWebsite();
 };
 
 
@@ -388,8 +271,14 @@ const renderAnimation = () => {
  * Launch the mandatory functions of the home page
  */
 const init = () => {
+
+    // TITLE ANIMATION
+    const title = document.getElementById('title');
+
+    cursorAnim(title);
+    titleAnim(0, title);
     setMenuProgress(0);
-    setSliderState(0);
+    setSliderState(0, true);
     initMembersListener();
     setTimelineState(0);
     addTimelineButtonListener();

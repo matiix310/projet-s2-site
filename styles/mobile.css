@@ -1,0 +1,163 @@
+
+/* TOPBAR */
+
+.topbar {
+    /* position */
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    left: 0;
+
+    /* size */
+    width: 100%;
+    height: 10%;
+
+    /* display */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* colors */
+    background-color: var(--yellow);
+}
+
+
+/* WRAPPER */
+
+.wrapper {
+    /* position */
+    position: relative;
+
+    /* size */
+    width: 100vw;
+    height: 100vh;
+
+    /* overflow */
+    overflow: hidden;
+}
+
+
+/* HEADER */
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#header h1 {
+    text-align: center;
+    font-weight: 800;
+    font-size: 12vw;
+    text-shadow: 0px 0px 20px var(--yellow);
+}
+
+#header img {
+    /* position */
+    position: absolute;
+    right: -15%;
+    top: 9%;
+
+    filter: brightness(0);
+}
+
+
+/* PRESENTATION */
+
+#sliderPresentation {
+    /* position */
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /* size */
+    width: 90%;
+    height: 72%;
+    padding: 18vh 5% 0 5%;
+
+    /* colors */
+    background-color: rgba(0, 0, 0, .95);
+    color: var(--white);
+
+    /* font */
+    font-size: 7vw;
+    text-align: center;
+}
+
+#sliderPresentation a {
+    color: var(--yellow);
+    text-decoration: none;
+}
+
+#sliderButtonContainer {
+    /* position */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    /* size */
+    width: 90%;
+    height: 10%;
+    padding: 0 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    background-color: rgba(0, 0, 0, .95);
+}
+
+#sliderButtonContainer span {
+    width: 5vw;
+    height: 5vw;
+    background-color: var(--white);
+    border-radius: 100px;
+
+    transition: .3s ease-in-out;
+}
+
+#sliderButtonContainer span.selected {
+    background-color: var(--yellow);
+    width: 8vw;
+    height: 8vw;
+}
+
+
+/* MEMBERS */
+
+.wrapper-title {
+    /* position */
+    position: relative;
+    margin-top: 15vh;
+    margin-left: 5%;
+
+    /* font */
+    font-size: 8vw;
+}
+
+.wrapper-title::before {
+    content: '';
+
+    /* position */
+    position: absolute;
+    bottom: 0;
+
+    /* size */
+    width: 10vw;
+    height: 1.5vw;
+
+    /* color */
+    background-color: var(--black);
+
+    /* misc */
+    border-radius: 100px;
+    transform: translateY(100%);
+}
+
+.double-arrow {
+    /* spotition */
+    position: absolute;
+    bottom: 8%;
+    left: 15%;
+    width: 70%;
+}
