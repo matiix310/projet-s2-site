@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/common.css">
     <link rel="stylesheet" href="../styles/mobile.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
     <title>Proj S2</title>
 </head>
 <body>
@@ -31,9 +32,28 @@
     <div id="members" class="wrapper">
         <h1 class="wrapper-title">Members</h1>
         <img class="double-arrow" src="../assets/double_arrow.png">
+        <div class="swiper members-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="../assets/mehdi.robardet.jpg" alt="Mehdi ROBARDET">
+                    <div class="card-back">
+                        <div class="picto-container">
+                            <img src="../assets/plus.png" alt="Show more">
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/lucas.stephan.jpg" alt="Lucas STEPHAN">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../assets/yusuf.ozen.jpg" alt="Yusuf OZEN">
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>
+<script src="../scripts/swiper.js"></script>
 <script src="../scripts/utils.js"></script>
 <script src="../scripts/typingAnimation.js"></script>
 <script src="../scripts/slider.js"></script>

@@ -161,3 +161,83 @@
     left: 15%;
     width: 70%;
 }
+
+
+/* SWIPER */
+
+.members-swiper {
+    /* position */
+    position: absolute;
+    top: 5%;
+
+    /* size */
+    width: 80vw;
+    height: 60vh;
+}
+
+.swiper-slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10vw;
+}
+
+.swiper-slide img {
+    position: relative;
+    object-fit: cover;
+    object-position: 0 0;
+    height: 100%;
+}
+
+.card-back {
+    /* position */
+    position: absolute;
+    top: 88%;
+    left: 0;
+
+    /* size */
+    height: 50%;
+    width: 100%;
+
+    /* transform */
+    transform-origin: 90% 10%;
+    transform: rotate(-90deg);
+
+    /* misc */
+    border-radius: 10vw 10vw 0 0;
+    background-color: var(--black);
+    transition: .3s ease-in-out;
+}
+
+.card-back::after {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    transition: .3s ease-in-out;
+}
+
+.card-back img {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    object-fit: contain;
+    width: 8vw;
+    height: 8vw;
+}
+
+.swiper-slide.folded .card-back {
+    top: 0;
+    height: 50%;
+    transform: rotate(0deg);
+}
+
+.swiper-slide.folded .card-back::after {
+    top: 100%;
+}
