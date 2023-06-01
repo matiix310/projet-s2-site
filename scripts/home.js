@@ -244,11 +244,11 @@ const addContactFormListener = () => {
 // REDIRECT TO THE MOBILE WEBSITE
 // DEPENDING ON THE SCREEN WIDTH AND THE USER AGENT
 
-const redirectMobileWebsite = () => {
-    var is_mobile = !!navigator.userAgent.match(/iphone|android|blackberry/ig) || false;
-    if (is_mobile)
-        document.location.href = "m";
-}
+// const redirectMobileWebsite = () => {
+//     var is_mobile = !!navigator.userAgent.match(/iphone|android|blackberry/ig) || false;
+//     if (is_mobile)
+//         document.location.href = "m";
+// }
 
 // MAIN LOOP TO RENDER THE ANIMATIONS
 
@@ -260,8 +260,8 @@ const renderAnimation = () => {
     adjustTimelineSize();
 
     // get the width size
-    const width = window.innerWidth;
-    redirectMobileWebsite();
+    // const width = window.innerWidth;
+    // redirectMobileWebsite();
 };
 
 
