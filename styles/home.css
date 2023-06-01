@@ -408,11 +408,11 @@ body {
 
 #showMoreContent {
     /* position */
-    margin-left: 10%;
-    margin-top: 9.6vh;
+    margin-left: 5%;
+    margin-top: 8vh;
 
     /* size */
-    width: 80%;
+    width: 90%;
 
     /* font */
     text-align: center;
@@ -441,7 +441,7 @@ body {
 }
 
 .member-show-more:hover {
-    height: 50%;
+    height: 30%;
 }
 
 .member-show-more:hover h1:nth-child(2) {
