@@ -15,6 +15,13 @@ for (let i = 1; i < sideMenu.children.length; i++) {
     })
 }
 
+
+// DOWNLOAD
+document.getElementById('download').addEventListener('click', () => {
+    document.location.href = "TerminalGame.zip";
+})
+
+
 /**
  * Set the menu progress to the provided `progess` index
  * @param {number} progress the progress index of the menu
